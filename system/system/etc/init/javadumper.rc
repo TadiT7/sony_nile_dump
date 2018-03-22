@@ -1,0 +1,18 @@
+on post-fs-data
+    # Allow javadumper to access dropbox!
+    mkdir /data/system/dropbox 0750 system system
+    chmod 0750 /data/system/dropbox
+
+# SONY: Java Dumper
+service javadumper /system/bin/javadumper
+    class main
+    user root
+    group root system
+    seclabel u:r:javadumper:s0
+
+#For Treble
+#service javadumper_vendor /vendor/bin/javadumper
+#    class main
+#    user root
+#    group root system
+#    seclabel u:r:javadumper:s0

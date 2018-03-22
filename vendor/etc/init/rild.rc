@@ -1,0 +1,6 @@
+service ril-daemon /vendor/bin/hw/rild
+    class main
+    user radio
+    group radio cache inet misc audio log readproc wakelock drmrpc oem_2993 oem_2901
+    capabilities BLOCK_SUSPEND NET_ADMIN NET_RAW
+    # check item: oem_2901 from qcom pre-ES5.

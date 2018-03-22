@@ -1,0 +1,2 @@
+service installd /system/bin/installd
+    class main

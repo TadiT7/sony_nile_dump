@@ -1,0 +1,27 @@
+#
+# Copyright (C) 2017 Sony Mobile Communications Inc.
+# All rights, including trade secret rights, reserved.
+#
+
+#
+# init.sony-crashhandling.rc
+#
+
+on init
+    # mount tmpfs to /tmp
+    mount tmpfs tmpfs /tmp nosuid mode=0755,uid=0,gid=0
+    chmod 0664 /proc/rdtag
+    chown root system /proc/rdtag
+
+on post-fs-data
+    # SONY: Create directory for partial dump
+    mkdir /data/crashdata 0770 root system
+
+    # Restore the security context for dump directories
+    # TODO: FOR TREBLE ADOPTION
+    exec u:r:restorecon:s0 -- /vendor/bin/restorecon -RF /data/crashdata/
+
+    # Create directory to store logs
+    mkdir /data/system/log 0770 root system
+    chown root system /data/system/log
+    chmod 0770 /data/system/log

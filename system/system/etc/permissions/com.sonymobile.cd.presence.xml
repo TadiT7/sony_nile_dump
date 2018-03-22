@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+   Copyright (C) 2016 Sony Mobile Communications Inc.
+   All rights, including trade secret rights, reserved.
+-->
+<permissions>
+    <library name="com.sonymobile.cd.presence"
+             file="/system/framework/com.sonymobile.cd.presence_static.jar"/>
+</permissions>

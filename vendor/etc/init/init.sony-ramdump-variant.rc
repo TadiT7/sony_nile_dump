@@ -1,0 +1,19 @@
+#
+# Copyright (C) 2017 Sony Mobile Communications Inc.
+# All rights, including trade secret rights, reserved.
+#
+
+#
+# init.sony-ramdump-variant.rc
+#
+
+on post-fs-data
+    trigger partial_dump_dir_complete
+
+# Enable CPE subsystem ramdump
+on property:sys.boot_completed=1
+    restorecon_recursive /sys/kernel/debug/wcd_cpe
+
+on partial_dump_dir_complete
+    # Support post_dumper in user variant
+    exec /vendor/bin/post_dumper -m

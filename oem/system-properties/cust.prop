@@ -1,0 +1,22 @@
+ro.build.description=H3113-user 8.0.0 50.1.A.4.102 2081749066 release-keys
+
+ro.product.brand=Sony
+ro.vendor.product.brand=Sony
+ro.product.name=H3113
+ro.vendor.product.name=H3113
+ro.product.device=H3113
+ro.vendor.product.device=H3113
+ro.build.version.incremental=2081749066
+ro.build.tags=release-keys
+ro.build.fingerprint=Sony/H3113/H3113:8.0.0/50.1.A.4.102/2081749066:user/release-keys
+ro.vendor.build.fingerprint=Sony/H3113/H3113:8.0.0/50.1.A.4.102/2081749066:user/release-keys
+ro.bootimage.build.fingerprint=Sony/H3113/H3113:8.0.0/50.1.A.4.102/2081749066:user/release-keys
+ro.build.thumbprint=8.0.0/50.1.A.4.102/2081749066:user/release-keys
+
+######################## Customized property values #########################
+ro.semc.version.cust=1312-1449
+ro.semc.version.cust_revision=R7A
+ro.somc.customerid=324
+ro.oem.key1=1312-1449
+#############################################################################
+

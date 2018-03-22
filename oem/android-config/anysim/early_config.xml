@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configs>
+   <string-array name="config_packagesBlacklist">
+      <item>fr.bouyguestelecom.ecm.android</item>
+      <item> com.gameloft.android.BOFR.GloftDMPH</item>
+      <item> com.pagesjaunes</item>
+   </string-array>
+   <string-array name="config_packagesFullBlacklist">
+      <item>fr.bouyguestelecom.ecm.android</item>
+      <item> com.gameloft.android.BOFR.GloftDMPH</item>
+      <item> com.pagesjaunes</item>
+      <item/>
+   </string-array>
+</configs>

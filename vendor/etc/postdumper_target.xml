@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ramdump_target>
+        <section src="file">
+                <scn_type>TLCORE_SECTION_TYPE_TEXT</scn_type>
+                <scn_attribute>
+                        <bitmask>TLCORE_SECTION_ATTRIBUTE_REPORT</bitmask>
+                </scn_attribute>
+                <scn_data_type>TLCORE_DATA_TYPE_ZLIB</scn_data_type>
+                <scn_data_fmt>TLCORE_DATA_FORMAT_STRAIGHT</scn_data_fmt>
+                <name>kernel.log</name>
+                <path>/sys/fs/pstore/console-ramoops-0</path>
+        </section>
+        <section src="file">
+                <scn_type>TLCORE_SECTION_TYPE_TEXT</scn_type>
+                <scn_attribute>
+                        <bitmask>TLCORE_SECTION_ATTRIBUTE_REPORT</bitmask>
+                </scn_attribute>
+                <scn_data_type>TLCORE_DATA_TYPE_ZLIB</scn_data_type>
+                <scn_data_fmt>TLCORE_DATA_FORMAT_STRAIGHT</scn_data_fmt>
+                <name>rdtags</name>
+                <path>/proc/rdtags/last_rdtags</path>
+        </section>
+        <section src="file">
+                <scn_type>TLCORE_SECTION_TYPE_BIN</scn_type>
+                <scn_attribute>
+                        <bitmask>TLCORE_SECTION_ATTRIBUTE_REPORT</bitmask>
+                </scn_attribute>
+                <scn_data_type>TLCORE_DATA_TYPE_ZLIB</scn_data_type>
+                <scn_data_fmt>TLCORE_DATA_FORMAT_STRAIGHT</scn_data_fmt>
+                <name>PMIC_PON.BIN</name>
+                <path>/sys/kernel/debug/last_logs/PMIC_PON</path>
+        </section>
+        <section src="file">
+                <scn_type>TLCORE_SECTION_TYPE_BIN</scn_type>
+                <scn_attribute>
+                        <bitmask>TLCORE_SECTION_ATTRIBUTE_REPORT</bitmask>
+                </scn_attribute>
+                <scn_data_type>TLCORE_DATA_TYPE_ZLIB</scn_data_type>
+                <scn_data_fmt>TLCORE_DATA_FORMAT_STRAIGHT</scn_data_fmt>
+                <name>RST_STAT.BIN</name>
+                <path>/sys/kernel/debug/last_logs/RST_STAT</path>
+        </section>
+        <section src="file">
+                <scn_type>TLCORE_SECTION_TYPE_TEXT</scn_type>
+                <scn_attribute>
+                        <bitmask>TLCORE_SECTION_ATTRIBUTE_REPORT</bitmask>
+                </scn_attribute>
+                <scn_data_type>TLCORE_DATA_TYPE_ZLIB</scn_data_type>
+                <scn_data_fmt>TLCORE_DATA_FORMAT_STRAIGHT</scn_data_fmt>
+                <name>tzbsp.log</name>
+                <path>/sys/kernel/debug/last_logs/tzbsp_log</path>
+        </section>
+        <section src="file">
+                <scn_type>TLCORE_SECTION_TYPE_BIN</scn_type>
+                <scn_attribute>
+                        <bitmask>TLCORE_SECTION_ATTRIBUTE_REPORT</bitmask>
+                </scn_attribute>
+                <scn_data_type>TLCORE_DATA_TYPE_ZLIB</scn_data_type>
+                <scn_data_fmt>TLCORE_DATA_FORMAT_STRAIGHT</scn_data_fmt>
+                <name>rpm_log.bin</name>
+                <path>/sys/kernel/debug/last_logs/rpm_log</path>
+        </section>
+        <section src="file">
+                <scn_type>TLCORE_SECTION_TYPE_BIN</scn_type>
+                <scn_attribute>
+                        <bitmask>TLCORE_SECTION_ATTRIBUTE_REPORT</bitmask>
+                </scn_attribute>
+                <scn_data_type>TLCORE_DATA_TYPE_ZLIB</scn_data_type>
+                <scn_data_fmt>TLCORE_DATA_FORMAT_STRAIGHT</scn_data_fmt>
+                <name>reset_reason.bin</name>
+                <path>/sys/kernel/debug/last_logs/reset_reason</path>
+        </section>
+</ramdump_target>
+

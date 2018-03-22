@@ -1,0 +1,39 @@
+#
+# Copyright (C) 2017 Sony Mobile Communications Inc.
+# All rights, including trade secret rights, reserved.
+#
+
+#
+# init.sony-ramdump.rc
+#
+
+import init.sony-ramdump-variant.rc
+
+on boot
+    # Init subsystem restart level script
+    exec u:r:ssr_level:s0 -- /vendor/bin/sh /vendor/etc/init.ssr_level.sh "adsp venus slpi modem"
+
+on post-fs-data
+    # SONY: Create directory for partial dump
+    mkdir /data/crashdata 0770 root system
+    exec u:r:restorecon:s0 -- /vendor/bin/restorecon -RF /data/crashdata/
+
+# Enable CPE subsystem ramdump
+on property:sys.boot_completed=1
+    restart ssr_dumper
+    restorecon /sys/kernel/debug/wlan0/power_stats
+
+on late-init
+    mkdir /mnt/tmp
+    mount tmpfs tmpfs /mnt/tmp nosuid mode=0755,uid=0,gid=0
+
+service ssr_dumper /vendor/bin/ssr_dumper
+    class main
+    user root
+    group root system
+    seclabel u:r:ssr_dumper:s0
+
+service bt_ssr_dumper /vendor/bin/bt_ssr_dumper
+    class main
+    user root
+    group root system bluetooth

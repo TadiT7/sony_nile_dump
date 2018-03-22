@@ -1,0 +1,46 @@
+#
+# Copyright (C) 2014 Sony Mobile Communications Inc.
+# All rights, including trade secret rights, reserved.
+#
+
+#
+# init.sony-security.rc
+#
+
+# Start Security Daemon
+on post-fs-data
+    mkdir /data/credmgr 0770 system credmgr_client
+    mkdir /persist/pc 0770 radio system
+
+# Defined in the vendor/system/system/core/libasb
+#service secd /system/bin/secd
+#    user system
+#    group system
+#    socket secd_ebl_sock stream 0660 system credmgr_client
+#    socket secd_devsec_sock stream 0660 system credmgr_client
+#    socket secd_credmgr_sock stream 0660 system credmgr_client
+#    class main
+
+# Secure clock
+on post-fs-data
+    # create directory for scd
+    mkdir /dev/socket/scd 0705 system system
+    mkdir /data/scd 0700 system system
+
+on property:gsm.nitz.time=*
+    start scdnotifier_nitz
+
+    # SONY: Enable wakeup irq module
+    write /sys/devices/platform/wakeup_debug.0/enable 1
+
+service scd /system/bin/scd
+    class late_start
+    user system
+    group system
+
+service scdnotifier_nitz /system/bin/scdnotifier nitz
+    class main
+    user system
+    group system
+    oneshot
+    disabled

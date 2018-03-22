@@ -1,0 +1,47 @@
+#
+# Copyright (C) 2016 Sony Mobile Communications Inc.
+# All rights, including trade secret rights, reserved.
+#
+
+#
+# init.sony-idd.rc
+#
+
+import init.sony-idd-variant.rc
+
+on fs
+    # SONY: setup idd and rca partition
+    mount_all /system/etc/idd.fstab
+    chown oem_2987 oem_2987 /idd
+    chmod 0751 /idd
+    symlink /idd /mnt/idd
+    chown oem_2987 oem_2987 /rca
+    chmod 0750 /rca
+    symlink /rca /mnt/rca
+
+on post-fs-data
+    mkdir idd/lost+found 0770 root root
+    mkdir idd/output 0755 oem_2987 oem_2987
+    mkdir idd/socket 0711 oem_2987 oem_2987
+    mkdir idd/private 0700 oem_2987 oem_2987
+    mkdir idd/input 0755 oem_2987 oem_2987
+    mkdir idd/startup-prober 0700 root root
+    exec u:r:restorecon:s0 -- /vendor/bin/restorecon -RF /idd
+    mkdir rca/plugins 0750 oem_2987 oem_2987
+    mkdir rca/startup-logger 0700 root root
+    exec u:r:restorecon:s0 -- /vendor/bin/restorecon -RF /rca
+
+# Start idd native service
+service iddd /vendor/bin/iddd
+    class core
+    user oem_2987
+    group oem_2987 log inet oem_2993
+
+service startup-prober /vendor/bin/startup-prober
+    user root
+    oneshot
+    disabled
+    group oem_2993 drmrpc system credmgr_client
+
+on property:dev.bootcomplete=1
+    start startup-prober

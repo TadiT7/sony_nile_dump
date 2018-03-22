@@ -1,0 +1,12 @@
+######################## Customized property values #########################
+ro.telephony.default_network=9
+persist.radio.calls.on.ims=1
+persist.data.iwlan.enable=true
+ro.nfc.icon.enable=true
+ro.semc.ecclist.num=1
+ro.semc.ecclist.number.0=112
+persist.ro.ril.sms_sync_sending=1
+ro.product.locale=fr-FR
+ro.cst.prm=1312-1449:R7A
+#############################################################################
+
